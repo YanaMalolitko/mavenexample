@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="poi-3.17">
+    <CLASSES>
+      <root url="jar://C:/Dev/Tools/poi-3.17/poi-3.17.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/poi-examples-3.17.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/poi-scratchpad-3.17.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/poi-ooxml-schemas-3.17.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/poi-excelant-3.17.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/poi-ooxml-3.17.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/lib/commons-codec-1.10.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/lib/junit-4.12.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/lib/commons-collections4-4.1.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/ooxml-lib/curvesapi-1.04.jar!/" />
+      <root url="jar://C:/Dev/Tools/poi-3.17/ooxml-lib/xmlbeans-2.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

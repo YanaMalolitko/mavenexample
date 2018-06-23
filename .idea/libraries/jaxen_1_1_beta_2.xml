@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="jaxen-1.1-beta-2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Java/xmlbeans-1.0.3/lib/jaxen-1.1-beta-2.jar!/" />
+      <root url="jar://$USER_HOME$/Java/xmlbeans-1.0.3/lib/xbean.jar!/" />
+      <root url="jar://$USER_HOME$/Java/xmlbeans-1.0.3/lib/xbean_xpath.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
