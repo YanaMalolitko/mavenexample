@@ -38,6 +38,10 @@ public class RefundCalculatorTesting {
 
         for (int indexOfLocation = 1; indexOfLocation < dropdown.size(); indexOfLocation++) {
 
+            //Implementation of TS_GlobalBlue_001. Test Case TC_RefCalc_002
+            //Check the country name values in Drop Down list.
+            //Compare country name values from the list with scope of countries covered by refund system
+
             dropDownValues = dropdown.get(indexOfLocation).getText();
             country.selectByIndex(indexOfLocation);
             String testCountryValue = ReadTestData.getTestData(indexOfLocation, 1);
@@ -47,6 +51,10 @@ public class RefundCalculatorTesting {
             Assert.assertEquals("Check the country value", testCountryValue, dropDownValues);
 
 
+            //Implementation of TS_GlobalBlue_001. Test Case TC_RefCalc_003
+            //Select country name values from Drop Down list
+            //Currency code is visible and equal to required.
+
             WebElement currencyElement = driver.findElement(By.className("purchase-currency-label"));
             String testCurrencyValue = ReadTestData.getTestData(indexOfLocation, 2);
             String actualCurrencyValue = currencyElement.getText();
@@ -55,22 +63,30 @@ public class RefundCalculatorTesting {
             System.out.println("Expected currency value is " + testCurrencyValue);
             Assert.assertEquals("Check the country value", testCurrencyValue, actualCurrencyValue);
 
-//            String testAmountValue = ReadTestData.getTestData(indexOfLocation, 3);
+
+            //Implementation of TS_GlobalBlue_001. Test Case TC_RefCalc_003
+            //Enter min amount for refund
+            // Refund" value is calculated
+
             WebElement purchaseAmountElement = driver.findElement(By.name("purchase_amount"));
             purchaseAmountElement.click();
-            purchaseAmountElement.sendKeys("1000000");
-
+            String testMinAmountValue = ReadTestData.getTestData(indexOfLocation, 4);
+            purchaseAmountElement.sendKeys(testMinAmountValue);
 
             WebElement refundAmountElement = driver.findElement(By.className("refund-amount"));
             ExplicitWait(driver, "refund-amount");
+
             Assert.assertFalse(refundAmountElement.getText().isEmpty());
+            System.out.println("Actual purchase Amount Element value is " + testMinAmountValue);
+            System.out.println("Expected refund Amount Element value is " + refundAmountElement.getText());
+
         }
     }
 
 
     public static void ExplicitWait(WebDriver driver, String element) {
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(element)));
 
     }

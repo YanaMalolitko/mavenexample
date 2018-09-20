@@ -1,5 +1,7 @@
 package com.globalbluecalculator;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -8,6 +10,8 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import static org.apache.poi.ss.usermodel.CellType.STRING;
 
 
 /**
@@ -19,26 +23,29 @@ public class ReadTestData {
 
     public static String getTestData(int indexOfLocation, int objectLocation) throws IOException {
 
-        File FileName = new File("C:\\Users\\Yana\\mavenexample\\testData\\testDataGlobalBlue.xlsx");
+        File FileName = new File("testData/testDataGlobalBlue.xlsx");
         FileInputStream file = new FileInputStream(new File(String.valueOf(FileName)));
         Workbook workbook = new XSSFWorkbook(file);
         XSSFSheet sheet1 = (XSSFSheet) workbook.getSheetAt(0);
-        String testedObjectValue = sheet1.getRow(indexOfLocation).getCell(objectLocation).getStringCellValue();
+
+        CellType cellType = sheet1.getRow(indexOfLocation).getCell(objectLocation).getCellTypeEnum();
+        String testedObjectValue = null;
+
+        switch (cellType) {
+            case NUMERIC:
+                testedObjectValue = String.valueOf(sheet1.getRow(indexOfLocation).getCell(objectLocation).getNumericCellValue());
+                break;
+
+            case STRING:
+
+                testedObjectValue = sheet1.getRow(indexOfLocation).getCell(objectLocation).getStringCellValue();
+
+                break;
+        }
+
 
         return testedObjectValue;
 
     }
-
-
-
-
-//    public static String getCountryValue(int indexOfLocation) {
-//
-//
-//        return countryValue (indexOfLocation);
-//    }
-//
-//    public static String getCurrencyValue(int indexOfLocation) {
-//        return currencyValue;
-//    }
+    
 }
